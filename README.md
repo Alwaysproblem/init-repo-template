@@ -1,2 +1,2 @@
-# MLcompiler-tutorial
-MLcompiler-tutorial
+# init-repo-template
+init-repo-template
