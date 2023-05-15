@@ -42,4 +42,7 @@ repos:
   rev: v0.6.10
   hooks:
   - id: cmake-format
+    args:
+      - "-c"
+      - ".cmake-format.yaml"
   - id: cmake-lint

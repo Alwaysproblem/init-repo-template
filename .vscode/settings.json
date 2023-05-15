@@ -12,5 +12,81 @@
     "--style",
     "${workspaceFolder}/.style.yapf"
   ],
-  "python.linting.cwd": "${workspaceFolder}"
+  "python.linting.cwd": "${workspaceFolder}",
+  "cmake.testEnvironment": {
+    // "LD_LIBRARY_PATH": "${workspaceFolder}/.vscode/vscode_build/:${workspaceFolder}/../unpacked/poplar/poplar-ubuntu_20_04-3.3.0+7726-8e07f7a105/lib:${env:LD_LIBRARY_PATH}",
+    // "POPLAR_LOG_LEVEL": "INFO",
+    // "MODEL_RUNTIME_LOG_LEVEL": "DEBUG"
+  },
+  "C_Cpp.errorSquiggles": "enabled",
+  "cmakeFormat.args": ["--config=${workspaceFolder}/.cmake-lint.yaml"],
+  "cmake.buildArgs": [
+  ],
+  "cmake.debugConfig": {
+    // "args": [
+    // ],
+    // "cwd": "${workspaceFolder}/src",
+  },
+  "cmake.buildDirectory": "${workspaceFolder}/build",
+  "cmake.configureArgs": [
+
+  ],
+  "cmake.cmakePath": "/usr/local/bin/cmake",
+  "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+  "C_Cpp.clang_format_path": "/usr/local/bin/clang-format",
+  "C_Cpp.clang_format_style": "${workspaceFolder}/.clang-format",
+  "C_Cpp.clang_format_sortIncludes": true,
+  // "C_Cpp.clang_format_fallbackStyle": "Visual Studio",
+
+
+  "editor.tokenColorCustomizations": {
+    "[One Dark*]": {
+      "textMateRules": [
+        {
+          "scope": "comment",
+          "settings": {
+            "fontStyle": "italic"
+          }
+        },
+        {
+          "scope": [
+            "keyword.control.import.python",
+            "keyword.control.directive.include.cpp"
+          ],
+          "settings": {
+            "foreground": "#c678dd",
+            "fontStyle": "italic"
+          }
+        },
+        {
+          "scope": [
+            "support.type.property-name.json"
+          ],
+          "settings": {
+            "foreground": "#7891dd"
+          }
+        }
+      ]
+    },
+    "textMateRules": [
+      {
+        "scope": "googletest.failed",
+        "settings": {
+          "foreground": "#f00"
+        }
+      },
+      {
+        "scope": "googletest.passed",
+        "settings": {
+          "foreground": "#0f0"
+        }
+      },
+      {
+        "scope": "googletest.run",
+        "settings": {
+          "foreground": "#0f0"
+        }
+      }
+    ]
+  }
 }
