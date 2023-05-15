@@ -1,0 +1,117 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "(lldb) Launch Run",
+      "preLaunchTask": "Bazel Build (Run)",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/bazel-bin/${relativeFileDirname}/${fileBasenameNoExtension}",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}/bazel-bin/${relativeFileDirname}/${fileBasenameNoExtension}.runfiles/__main__",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "lldb"
+    },
+    {
+      "name": "(lldb) Launch Run Opt",
+      "preLaunchTask": "Bazel Build (Run Opt)",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/bazel-bin/${relativeFileDirname}/${fileBasenameNoExtension}",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}/bazel-bin/${relativeFileDirname}/${fileBasenameNoExtension}.runfiles/__main__",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "lldb"
+    },
+    {
+      "name": "(lldb) Launch Debug",
+      "preLaunchTask": "Bazel Build (Debug)",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/bazel-bin/${relativeFileDirname}/${fileBasenameNoExtension}",
+      "args": ["100", "3"],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "sourceFileMap": {
+        "src/": "${workspaceFolder}/src"
+        // https://github.com/microsoft/vscode-cpptools/issues/3831#issuecomment-548178142
+      },
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "lldb"
+    },
+    {
+      "preLaunchTask": "Bazel Build (Debug)",
+      "name": "CodeLLDB",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceFolder}/bazel-bin/${relativeFileDirname}/${fileBasenameNoExtension}",
+      "args": [],
+      "sourceMap": {
+        ".": "${workspaceFolder}"
+      }
+    },
+    {
+      "preLaunchTask": "Bazel Build (Debug)",
+      "name": "CodeLLDBArgs",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceFolder}/bazel-bin/${relativeFileDirname}/${fileBasenameNoExtension}",
+      "args": ["100", "3"],
+      "sourceMap": {
+        ".": "${workspaceFolder}"
+      }
+    },
+    {
+      "preLaunchTask": "Bazel Build (Debug)",
+      "name": "CodeLLDBDividerTest",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceFolder}/bazel-bin/test/src/divider_test.runfiles/__main__/test/src/divider_test",
+      // "program": "${workspaceFolder}/bazel-bin/test/src/divider_test.runfiles/__main__/test/src/divider_test",
+      "args": ["100", "3"],
+      "sourceMap": {
+        ".": "${workspaceFolder}"
+      }
+    },
+    {
+      "preLaunchTask": "Bazel Build (Debug)",
+      "name": "CodeLLDBAllTests",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceFolder}/bazel-bin/test/all_tests.runfiles/__main__/test/all_tests",
+      "args": ["100", "3"],
+      "sourceMap": {
+        ".": "${workspaceFolder}"
+      }
+    },
+    {
+      "name": "Linux: g++ build and debug active file",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/bazel-bin/${relativeFileDirname}/${fileBasenameNoExtension}",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ],
+      "preLaunchTask": "Bazel Build (Debug)",
+      "miDebuggerPath": "/usr/bin/gdb"
+    }
+  ]
+}
