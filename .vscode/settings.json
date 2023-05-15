@@ -1,17 +1,67 @@
 {
   "editor.tabSize": 2,
-  "editor.formatOnSave": true,
   "pylint.args": ["--rcfile=pylintrc"],
+  "editor.formatOnSave": true,
   "[python]": {
     "editor.formatOnSaveMode": "file",
     "editor.defaultFormatter": "eeyore.yapf",
     "editor.formatOnType": false
   },
   "yapf.args": ["--style", "${workspaceFolder}/.style.yapf"],
-  // "prettier.configPath": ".prettierrc",
-  // "python.testing.pytestArgs": [
-  //   "tests"
-  // ],
-  // "python.testing.unittestEnabled": false,
-  // "python.testing.pytestEnabled": true
+  "cmake.testEnvironment": {
+    // "LD_LIBRARY_PATH": "${workspaceFolder}/.vscode/vscode_build/:${workspaceFolder}/../unpacked/poplar/poplar-ubuntu_20_04-3.3.0+7726-8e07f7a105/lib:${env:LD_LIBRARY_PATH}",
+    // "POPLAR_LOG_LEVEL": "INFO",
+    // "MODEL_RUNTIME_LOG_LEVEL": "DEBUG"
+  },
+  "cmakeFormat.args": ["--config=${workspaceFolder}/.cmake-lint.yaml"],
+  "cmake.buildArgs": [],
+  "cmake.debugConfig": {
+    // "args": [
+    // ],
+    // "cwd": "${workspaceFolder}/src",
+  },
+  "cmake.buildDirectory": "${workspaceFolder}/build",
+  "cmake.configureArgs": [],
+  "cmake.cmakePath": "/usr/local/bin/cmake",
+  "C_Cpp.errorSquiggles": "enabled",
+  "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+  "C_Cpp.clang_format_path": "/usr/local/bin/clang-format",
+  "C_Cpp.clang_format_sortIncludes": true,
+  // "C_Cpp.clang_format_fallbackStyle": "Visual Studio",
+  "C_Cpp.codeAnalysis.clangTidy.enabled": true,
+  // "C_Cpp.codeAnalysis.clangTidy.path": "${env.HOME}/opt/anaconda3/envs/cpp-simplecode/bin/clang-tidy",
+  "C_Cpp.codeAnalysis.clangTidy.codeAction.formatFixes": true,
+  "C_Cpp.codeAnalysis.clangTidy.useBuildPath": true,
+  // "clangd.path": "clangd",
+  // "clangd.arguments": ["--background-index"],
+  // "lldb-dap.executable-path": "/usr/bin/lldb-dap-19",
+
+  "editor.tokenColorCustomizations": {
+    "[One Dark*]": {
+      "textMateRules": [
+        {
+          "scope": "comment",
+          "settings": {
+            "fontStyle": "italic"
+          }
+        },
+        {
+          "scope": [
+            "keyword.control.import.python",
+            "keyword.control.directive.include.cpp"
+          ],
+          "settings": {
+            "foreground": "#c678dd",
+            "fontStyle": "italic"
+          }
+        },
+        {
+          "scope": ["support.type.property-name.json"],
+          "settings": {
+            "foreground": "#7891dd"
+          }
+        }
+      ]
+    }
+  }
 }

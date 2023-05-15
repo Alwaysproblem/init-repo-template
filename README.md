@@ -1,3 +1,3 @@
-# init-repo-template
+# cpp-init-repo-template
 
-init-repo-template
+cpp-init-repo-template
