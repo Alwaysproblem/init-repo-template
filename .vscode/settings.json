@@ -3,15 +3,10 @@
   "python.linting.enabled": true,
   "python.linting.pylintEnabled": true,
   "python.linting.pylintPath": "pylint",
-  "python.linting.pylintArgs": [
-    "--rcfile=pylintrc"
-  ],
+  "python.linting.pylintArgs": ["--rcfile=pylintrc"],
   "editor.formatOnSave": true,
   "python.formatting.provider": "yapf",
-  "python.formatting.yapfArgs": [
-    "--style",
-    "${workspaceFolder}/.style.yapf"
-  ],
+  "python.formatting.yapfArgs": ["--style", "${workspaceFolder}/.style.yapf"],
   "python.linting.cwd": "${workspaceFolder}",
   "cmake.testEnvironment": {
     // "LD_LIBRARY_PATH": "${workspaceFolder}/.vscode/vscode_build/:${workspaceFolder}/../unpacked/poplar/poplar-ubuntu_20_04-3.3.0+7726-8e07f7a105/lib:${env:LD_LIBRARY_PATH}",
@@ -20,17 +15,14 @@
   },
   "C_Cpp.errorSquiggles": "enabled",
   "cmakeFormat.args": ["--config=${workspaceFolder}/.cmake-lint.yaml"],
-  "cmake.buildArgs": [
-  ],
+  "cmake.buildArgs": [],
   "cmake.debugConfig": {
     // "args": [
     // ],
     // "cwd": "${workspaceFolder}/src",
   },
   "cmake.buildDirectory": "${workspaceFolder}/build",
-  "cmake.configureArgs": [
-
-  ],
+  "cmake.configureArgs": [],
   "cmake.cmakePath": "/usr/local/bin/cmake",
   "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
   "C_Cpp.clang_format_path": "/usr/local/bin/clang-format",
@@ -42,7 +34,6 @@
   "C_Cpp.codeAnalysis.clangTidy.codeAction.formatFixes": true,
   "C_Cpp.codeAnalysis.clangTidy.config": "${workspaceFolder}/.clang-tidy",
   "C_Cpp.codeAnalysis.clangTidy.useBuildPath": true,
-
 
   "editor.tokenColorCustomizations": {
     "[One Dark*]": {
@@ -64,9 +55,7 @@
           }
         },
         {
-          "scope": [
-            "support.type.property-name.json"
-          ],
+          "scope": ["support.type.property-name.json"],
           "settings": {
             "foreground": "#7891dd"
           }
