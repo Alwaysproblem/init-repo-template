@@ -26,13 +26,11 @@
   "cmake.cmakePath": "/usr/local/bin/cmake",
   "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
   "C_Cpp.clang_format_path": "/usr/local/bin/clang-format",
-  "C_Cpp.clang_format_style": "${workspaceFolder}/.clang-format",
   "C_Cpp.clang_format_sortIncludes": true,
   // "C_Cpp.clang_format_fallbackStyle": "Visual Studio",
   "C_Cpp.codeAnalysis.clangTidy.enabled": true,
   // "C_Cpp.codeAnalysis.clangTidy.path": "${env.HOME}/opt/anaconda3/envs/cpp-simplecode/bin/clang-tidy",
   "C_Cpp.codeAnalysis.clangTidy.codeAction.formatFixes": true,
-  "C_Cpp.codeAnalysis.clangTidy.config": "${workspaceFolder}/.clang-tidy",
   "C_Cpp.codeAnalysis.clangTidy.useBuildPath": true,
 
   "editor.tokenColorCustomizations": {
