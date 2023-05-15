@@ -1,17 +1,40 @@
 {
   "editor.tabSize": 2,
-  "editor.formatOnSave": true,
   "pylint.args": ["--rcfile=pylintrc"],
+  "editor.formatOnSave": true,
   "[python]": {
     "editor.formatOnSaveMode": "file",
     "editor.defaultFormatter": "eeyore.yapf",
     "editor.formatOnType": false
   },
   "yapf.args": ["--style", "${workspaceFolder}/.style.yapf"],
-  // "prettier.configPath": ".prettierrc",
-  // "python.testing.pytestArgs": [
-  //   "tests"
-  // ],
-  // "python.testing.unittestEnabled": false,
-  // "python.testing.pytestEnabled": true
+  "C_Cpp.errorSquiggles": "enabled",
+  "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+  "C_Cpp.clang_format_path": "${env.HOME}/anaconda3/envs/init-test/bin/clang-format",
+  "C_Cpp.clang_format_sortIncludes": true,
+  // "C_Cpp.clang_format_fallbackStyle": "Visual Studio",
+  "C_Cpp.codeAnalysis.clangTidy.enabled": true,
+  "C_Cpp.codeAnalysis.clangTidy.path": "${env.HOME}/anaconda3/envs/init-test/bin/clang-tidy",
+  // "C_Cpp.codeAnalysis.clangTidy.path": "${env.HOME}/opt/anaconda3/envs/cpp-simplecode/bin/clang-tidy",
+  "C_Cpp.codeAnalysis.clangTidy.codeAction.formatFixes": true,
+  "C_Cpp.codeAnalysis.clangTidy.useBuildPath": true,
+  "C_Cpp.codeAnalysis.clangTidy.args": [
+    "-p",
+    "${workspaceFolder}/compile_commands.json"
+  ],
+  "bsv.cc.compdb.targets": [
+    "//src/...",
+    "//test/...",
+  ],
+  "bsv.bazel.executable": "bazel",
+  "bsv.bazel.buildFlags": [],
+  "bsv.bazel.runFlags": [],
+  "bsv.bazel.starlarkDebugFlags": [
+    "--experimental_skylark_debug",
+    "--experimental_skylark_debug_verbose_logging"
+  ],
+  "bsv.bazel.testFlags": [],
+  "bluebazel.executableCommand": "bazel",
+  "bluebazel.generateRunTargets": "query 'kind(cc_binary, //src/...)'",
+  "bluebazel.setupEnvironmentCommand": "",
 }
