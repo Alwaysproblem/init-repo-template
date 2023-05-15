@@ -5,7 +5,7 @@ cpp-init-repo-template
 ## Env
 
 ```bash
-conda install cmake ninja clang-format -y -c conda-forge
+conda install cmake ninja clang-format clang-tools -y -c conda-forge
 ```
 
 - `.vscode/cmake-kits.json`
