@@ -21,9 +21,7 @@
     // "cwd": "${workspaceFolder}/src",
   },
   "cmake.buildDirectory": "${workspaceFolder}/build",
-  "cmake.configureArgs": [
-
-  ],
+  "cmake.configureArgs": [],
   "cmake.cmakePath": "${env.HOME}/opt/anaconda3/envs/cpp-simplecode/bin/cmake",
   "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
   "C_Cpp.clang_format_path": "/usr/local/bin/clang-format",
@@ -36,7 +34,6 @@
   "C_Cpp.codeAnalysis.clangTidy.config": "${workspaceFolder}/.clang-tidy",
   // "clangd.path": "clangd",
   // "clangd.arguments": ["--background-index"],
-
 
   "editor.tokenColorCustomizations": {
     "[One Dark*]": {
