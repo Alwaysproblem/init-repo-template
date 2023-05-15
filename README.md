@@ -56,4 +56,5 @@
   hedron_compile_commands_setup()
   ```
 
-  - run `bazel run :RefreshCompileCommands`
+  - run `bazel run @hedron_compile_commands//:refresh_all`
+    Note: you have to `bazel run` this tool, not just `bazel build` it.

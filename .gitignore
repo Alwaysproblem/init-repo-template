@@ -7,3 +7,5 @@ tensorflow/
 serving/
 bazel-*
 *.whl
+external/*
+compile_commands.json

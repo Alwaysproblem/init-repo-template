@@ -48,6 +48,27 @@
       "MIMode": "lldb"
     },
     {
+      "name": "Linux: (g++) build and debug active file",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/bazel-bin/${relativeFileDirname}/${fileBasenameNoExtension}",
+      "args": ["100", "3"],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ],
+      "preLaunchTask": "Bazel Build (Debug)",
+      "miDebuggerPath": "/usr/bin/gdb"
+    },
+    {
       "preLaunchTask": "Bazel Build (Debug)",
       "name": "CodeLLDB",
       "type": "lldb",
@@ -91,27 +112,6 @@
       "sourceMap": {
         ".": "${workspaceFolder}"
       }
-    },
-    {
-      "name": "Linux: g++ build and debug active file",
-      "type": "cppdbg",
-      "request": "launch",
-      "program": "${workspaceFolder}/bazel-bin/${relativeFileDirname}/${fileBasenameNoExtension}",
-      "args": [],
-      "stopAtEntry": false,
-      "cwd": "${workspaceFolder}",
-      "environment": [],
-      "externalConsole": false,
-      "MIMode": "gdb",
-      "setupCommands": [
-        {
-          "description": "Enable pretty-printing for gdb",
-          "text": "-enable-pretty-printing",
-          "ignoreFailures": true
-        }
-      ],
-      "preLaunchTask": "Bazel Build (Debug)",
-      "miDebuggerPath": "/usr/bin/gdb"
     }
   ]
 }
