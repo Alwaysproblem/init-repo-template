@@ -31,7 +31,7 @@
   "cmake.configureArgs": [
 
   ],
-  "cmake.cmakePath": "/usr/local/bin/cmake",
+  "cmake.cmakePath": "${env.HOME}/opt/anaconda3/envs/cpp-simplecode/bin/cmake",
   "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
   "C_Cpp.clang_format_path": "/usr/local/bin/clang-format",
   "C_Cpp.clang_format_style": "${workspaceFolder}/.clang-format",
