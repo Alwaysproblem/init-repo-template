@@ -71,3 +71,14 @@ Added this into `setting.json` and press `F1` to generate cpp code database
   ],
 ...
 ```
+
+The `bazel query` can be used in targets generation.
+
+for example:
+
+```shell
+# obtain all the cc_binary and cc_library rules targets.
+bazel query 'kind("cc_.* rule", //jaxlib/...)'
+# obtain all the targets
+bazel query //jaxlib/...
+```
