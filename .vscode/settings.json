@@ -21,5 +21,15 @@
   "C_Cpp.codeAnalysis.clangTidy.args": [
     "-p",
     "${workspaceFolder}/compile_commands.json"
-  ]
+  ],
+  "bsv.cc.compdb.targets": [
+    "//jaxlib:cpu_kernels",
+    "//jaxlib:handle_pool",
+    "//jaxlib:cpu_feature_guard",
+    "//jaxlib:utils",
+    "//jaxlib/mlir/_mlir_libs:libjaxlib_mlir_capi.so"
+  ],
+  "bsv.bazel.executable": "/root/anaconda3/envs/jax-build/bin/bazel",
+  // "bsv.bazel.buildFlags": ["--cpu=x86_64"],
+  "bsv.bazel.runFlags": ["--cpu=x86_64"]
 }

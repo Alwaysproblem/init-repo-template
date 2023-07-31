@@ -59,3 +59,15 @@
 
   - run `bazel run @hedron_compile_commands//:refresh_all`
     Note: you have to `bazel run` this tool, not just `bazel build` it.
+
+### Generate Compilation database with `bazel-stack-vscode-cc` vscode extension
+
+Added this into `setting.json` and press `F1` to generate cpp code database
+
+```json
+...
+  "bsv.cc.compdb.targets": [
+    "<your target generate by cc_binary or cc_library rules>",
+  ],
+...
+```
