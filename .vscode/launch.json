@@ -112,6 +112,42 @@
       "sourceMap": {
         ".": "${workspaceFolder}"
       }
+    },
+    // this is for pybind11 debug such as tensorflow, jax and etc.
+    {
+      "name": "Python C++ Debugger",
+      "type": "pythoncpp",
+      "request": "launch",
+      "pythonLaunchName": "Python: Current File",
+      "cppAttachName": "(gdb) Attach"
+    },
+    {
+        "name": "(gdb) Attach",
+        "type": "cppdbg",
+        "request": "attach",
+        "program": "/root/anaconda3/envs/jax-test/bin/python",
+        "processId": "",
+        "MIMode": "gdb",
+        "miDebuggerPath": "/usr/bin/gdb",
+        // we need to map the path in the so file to the real project source file.
+        // this is for bazel tool not tested in cmake tools
+        "sourceFileMap": {
+          "/proc/self/cwd": "${workspaceFolder}"
+        },
+        "setupCommands": [
+            {
+                "description": "Enable pretty-printing for gdb",
+                "text": "-enable-pretty-printing",
+                "ignoreFailures": true
+            }
+        ]
+    },
+    {
+      "name": "Python: Current File",
+      "type": "python",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal"
     }
   ]
 }
