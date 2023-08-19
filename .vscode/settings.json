@@ -3,10 +3,15 @@
   "python.linting.enabled": true,
   "python.linting.pylintEnabled": true,
   "python.linting.pylintPath": "pylint",
-  "python.linting.pylintArgs": ["--rcfile=.pylintrc"],
+  "python.linting.pylintArgs": [
+    "--rcfile=.pylintrc"
+  ],
   "editor.formatOnSave": true,
   "python.formatting.provider": "yapf",
-  "python.formatting.yapfArgs": ["--style", "${workspaceFolder}/.style.yapf"],
+  "python.formatting.yapfArgs": [
+    "--style",
+    "${workspaceFolder}/.style.yapf"
+  ],
   "python.linting.cwd": "${workspaceFolder}",
   "C_Cpp.errorSquiggles": "enabled",
   "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
@@ -23,13 +28,18 @@
     "${workspaceFolder}/compile_commands.json"
   ],
   "bsv.cc.compdb.targets": [
-    "//jaxlib:cpu_kernels",
-    "//jaxlib:handle_pool",
-    "//jaxlib:cpu_feature_guard",
-    "//jaxlib:utils",
-    "//jaxlib/mlir/_mlir_libs:libjaxlib_mlir_capi.so"
+    "//src/...",
+    "//test/...",
   ],
-  "bsv.bazel.executable": "/root/anaconda3/envs/jax-build/bin/bazel",
-  // "bsv.bazel.buildFlags": ["--cpu=x86_64"],
-  "bsv.bazel.runFlags": ["--cpu=x86_64"]
+  "bsv.bazel.executable": "bazel",
+  "bsv.bazel.buildFlags": [],
+  "bsv.bazel.runFlags": [],
+  "bsv.bazel.starlarkDebugFlags": [
+    "--experimental_skylark_debug",
+    "--experimental_skylark_debug_verbose_logging"
+  ],
+  "bsv.bazel.testFlags": [],
+  "bluebazel.executableCommand": "bazel",
+  "bluebazel.generateRunTargets": "query 'kind(cc_binary, //src/...)'",
+  "bluebazel.setupEnvironmentCommand": "",
 }
