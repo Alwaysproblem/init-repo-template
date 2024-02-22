@@ -1,0 +1,53 @@
+default:
+  image:
+    name: python:3.11
+    pull_policy: [always, if-not-present]
+
+  tags:
+    - docker
+
+  cache:
+    paths:
+      - .cache/pip
+
+  before_script:
+    - python -V
+    - pip install -U pip
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+  GIT_STRATEGY: clone
+
+workflow:
+  rules:
+    - if: $CI_COMMIT_TITLE =~ /^(Draft|draft)/
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: $CI_DEFAULT_BRANCH == $CI_MERGE_REQUEST_TARGET_BRANCH_NAME
+
+stages:
+  - code_quality
+  - build
+  - test
+
+job_code_quality:
+  stage: code_quality
+  before_script:
+    - pip install pre-commit
+  script:
+    - git fetch origin ${CI_DEFAULT_BRANCH}
+    - 'echo "Source branch: origin/${CI_DEFAULT_BRANCH}"'
+    - 'echo "${CI_COMMIT_BRANCH}"'
+    - 'echo "${CI_COMMIT_TITLE}"'
+    - pre-commit run --from-ref origin/${CI_DEFAULT_BRANCH} --to-ref HEAD
+
+job_build:
+  stage: build
+  script:
+    - echo "Building the project"
+
+job_test:
+  stage: test
+  script:
+    - echo "Running tests"
