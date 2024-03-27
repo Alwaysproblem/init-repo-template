@@ -1,0 +1,70 @@
+pytest:
+  image:
+    name: python:3.8
+    pull_policy: [always, if-not-present]
+
+  rules:
+    - if: $CI_COMMIT_TITLE =~ /^(Draft|draft)/
+      when: never
+    - if: $CI_MERGE_REQUEST_TITLE =~ /^(Draft|draft)/
+      when: never
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_DEFAULT_BRANCH == $CI_MERGE_REQUEST_TARGET_BRANCH_NAME'
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME =~ /^(release)/ '
+
+  tags:
+    - "profiler-ubuntu22.04-host-001"
+
+  cache:
+    key: pip
+    policy: pull-push
+    paths:
+      - $CI_PROJECT_DIR/.cache
+
+  before_script:
+    - python -V
+    - pip install -U pip
+    - pip install -r requirements_dev.txt
+
+  stage: tests
+  script:
+    - pytest -s tests -v -l --full-trace --junit-xml=tests/pytest_report.xml
+  artifacts:
+    when: always
+    reports:
+      junit: tests/pytest_report.xml
+
+  interruptible: true
+
+pytest-for-release:
+  image:
+    name: python:3.8
+    pull_policy: [always, if-not-present]
+
+  rules:
+    - if: $CI_COMMIT_TAG =~ '/^v?\d+\.\d+\.\d+(-rc\d+)?$/'
+
+  tags:
+    - "profiler-ubuntu22.04-host-001"
+
+  cache:
+    key: pip
+    policy: pull-push
+    paths:
+      - $CI_PROJECT_DIR/.cache
+
+  before_script:
+    - python -V
+    - pip install -U pip
+    - pip install -r requirements.txt
+    - pip install pytest==7.4.0
+
+  stage: build
+  script:
+    - pytest -s tests -v -l --full-trace --junit-xml=tests/release_pytest_report.xml
+  artifacts:
+    when: always
+    reports:
+      junit: tests/release_pytest_report.xml
+
+  interruptible: false

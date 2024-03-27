@@ -1,0 +1,21 @@
+assign-reviewers-job:
+  stage: setting-up-merge-request
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      when: always
+      changes:
+        paths:
+          - "*"
+  before_script:
+    - apt-get update
+    - apt-get install jq -y
+  script:
+    - |
+      echo "Fetching code owners"
+      CODEOWNERS=$(curl -H  "PRIVATE-TOKEN: ${PRE_COMMIT_ACCESS_TOKEN}" "https://gitlab-jc01.renesasworkbench.com/api/v4/groups/${YOUR_GROUP_ID}/members")
+
+      echo "Parsing response. Put code owners' Gitlab IDs into an array"
+      REVIEWER_ID_ARR=[$(jq -r '[.[].id|tostring] | join(",")' <<< ${CODEOWNERS})]
+      echo "Adding code owners to the reviewers list"
+      curl -X PUT -H "Content-Type: application/json" --data '{ "reviewer_ids": '${REVIEWER_ID_ARR}' }' https://gitlab-jc01.renesasworkbench.com/api/v4/projects/${YOUR_PROJECT_ID}/merge_requests/${CI_MERGE_REQUEST_IID}?private_token=${PRE_COMMIT_ACCESS_TOKEN}
+  allow_failure: true

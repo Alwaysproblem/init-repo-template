@@ -1,0 +1,40 @@
+linters:
+  image:
+    name: python:3.8
+    pull_policy: [always, if-not-present]
+
+  rules:
+    - if: $CI_COMMIT_TAG
+      when: never
+    - if: $CI_COMMIT_TITLE =~ /^(Draft|draft)/
+      when: never
+    - if: $CI_MERGE_REQUEST_TITLE =~ /^(Draft|draft)/
+      when: never
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_DEFAULT_BRANCH == $CI_MERGE_REQUEST_TARGET_BRANCH_NAME'
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME =~ /^(release)/ '
+
+  tags:
+    - "profiler-ubuntu22.04-host-001"
+
+  variables:
+    PRE_COMMIT_HOME: $CI_PROJECT_DIR/.cache/pre-commit
+
+  cache:
+    key: pre-commit
+    policy: pull-push
+    paths:
+      - $CI_PROJECT_DIR/.cache
+
+  before_script:
+    - python -V
+    - pip install -U pip
+    - pip install pre-commit
+
+  stage: linter
+  script:
+    - git fetch origin ${CI_DEFAULT_BRANCH}
+    - 'echo "Source branch: origin/${CI_DEFAULT_BRANCH}"'
+    - 'echo "${CI_COMMIT_BRANCH}"'
+    - 'echo "${CI_COMMIT_TITLE}"'
+    - pre-commit run --from-ref origin/${CI_DEFAULT_BRANCH} --to-ref HEAD --show-diff-on-failure

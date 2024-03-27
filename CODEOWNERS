@@ -1,0 +1,29 @@
+* @xudong @qianggong @siyuanli @yongxiyang @maryli
+
+[README] @xudong @yongxiyang
+README.md
+docs/
+
+[Source code] @siyuanli @xudong
+rperf/
+tests/
+
+[CI] @yongxiyang
+.ci/
+.gitlab/
+.gitlab-ci.yml
+.clang-format
+.gitignore
+.gitmodules
+.gitattributes
+.pylintrc
+.style.yapf
+requirements.txt
+requirements_dev.txt
+setup.py
+.pre-commit-config.yaml
+.prettierrc
+
+[License] @xudong @yongxiyang @maryli
+LICENSE
+.ci/license_header.txt
