@@ -16,13 +16,14 @@
   "cmakeFormat.args": ["--config=${workspaceFolder}/.cmake-lint.yaml"],
   "cmake.buildArgs": [],
   "cmake.debugConfig": {
-    // "args": [
+  // "args": [
     // ],
     // "cwd": "${workspaceFolder}/src",
   },
   "cmake.buildDirectory": "${workspaceFolder}/build",
   "cmake.configureArgs": [],
   "cmake.cmakePath": "${env.HOME}/opt/anaconda3/envs/cpp-simplecode/bin/cmake",
+  "C_Cpp.errorSquiggles": "enabled",
   "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
   "C_Cpp.clang_format_path": "/usr/local/bin/clang-format",
   "C_Cpp.clang_format_sortIncludes": true,
