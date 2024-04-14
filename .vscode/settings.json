@@ -1,16 +1,17 @@
 {
   "editor.tabSize": 2,
-  "python.linting.enabled": true,
-  "python.linting.pylintEnabled": true,
-  "python.linting.pylintPath": "pylint",
-  "python.linting.pylintArgs": [
-    "--rcfile=pylintrc"
-  ],
   "editor.formatOnSave": true,
-  "python.formatting.provider": "yapf",
-  "python.formatting.yapfArgs": [
-    "--style",
-    "${workspaceFolder}/.style.yapf"
-  ],
-  "python.linting.cwd": "${workspaceFolder}"
+  "pylint.args": ["--rcfile=pylintrc"],
+  "[python]": {
+    "editor.formatOnSaveMode": "file",
+    "editor.defaultFormatter": "eeyore.yapf",
+    "editor.formatOnType": false
+  },
+  "yapf.args": ["--style", "${workspaceFolder}/.style.yapf"],
+  // "prettier.configPath": ".prettierrc",
+  // "python.testing.pytestArgs": [
+  //   "tests"
+  // ],
+  // "python.testing.unittestEnabled": false,
+  // "python.testing.pytestEnabled": true
 }
