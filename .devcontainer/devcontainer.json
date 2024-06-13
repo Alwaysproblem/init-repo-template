@@ -4,9 +4,22 @@
   "remoteUser": "root",
   "name": "tvm",
   "build": {
-    "context": ".",
+    "context": "${localWorkspaceFolder}/docker",
     "dockerfile": "Dockerfile",
-    "options": []
+    "options": [
+      "--secret",
+      "id=secret_env,src=${localWorkspaceFolder}/docker/.env",
+      "--build-arg",
+      "RDL_VERSION=1.2.0-tvm.20240528+e49ba4eb",
+      "--build-arg",
+      "RCARIR_VERSION=0.1.0.dev6573d21",
+      "--build-arg",
+      "DKL_VERSION=0.3.0.dev5408305e353b",
+      "--build-arg",
+      "ACCURATESIM_COMMIT_HASH=15fbc6fe36d67ebe5f514870ddd1b6099f5a9936",
+      "--build-arg",
+      "RCAR_XOS_VERSION=3.26.0"
+    ]
     // "args": {
     //   "MYARGFROMENVVAR": "${localEnv:VARIABLE_NAME}"
     // }
