@@ -3,6 +3,8 @@
 {
   "remoteUser": "root",
   "name": "tvm",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/root/Desktop/dockerVolumn/${localWorkspaceFolderBasename},type=bind",
+  "workspaceFolder": "/root/Desktop/dockerVolumn/${localWorkspaceFolderBasename}",
   "build": {
     "context": "${localWorkspaceFolder}/docker",
     "dockerfile": "Dockerfile",
