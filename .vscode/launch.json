@@ -25,9 +25,6 @@
       // },
       "externalConsole": false,
       "linux": {
-        "name": "(gdb) Launch",
-        "type": "cppdbg",
-        "request": "launch",
         // Resolved by CMake Tools:
         "program": "${command:cmake.launchTargetPath}",
         "MIMode": "gdb",
@@ -41,23 +38,17 @@
         ]
       },
       "osx": {
-        "name": "(lldb) Launch",
-        "type": "cppdbg",
-        "request": "launch",
         // Resolved by CMake Tools:
         "program": "${command:cmake.launchTargetPath}",
         "externalConsole": false,
         "MIMode": "lldb"
       },
       "windows": {
-        "name": "(gdb) Launch",
-        "type": "cppdbg",
-        "request": "launch",
         // Resolved by CMake Tools:
         "program": "${command:cmake.launchTargetPath}",
         "MIMode": "gdb",
         "miDebuggerPath": "C:\\MinGw\\bin\\gdb.exe"
       }
-    }
+    },
   ]
 }

@@ -32,6 +32,8 @@
   // "C_Cpp.codeAnalysis.clangTidy.path": "${env.HOME}/opt/anaconda3/envs/cpp-simplecode/bin/clang-tidy",
   "C_Cpp.codeAnalysis.clangTidy.codeAction.formatFixes": true,
   "C_Cpp.codeAnalysis.clangTidy.useBuildPath": true,
+  // "clangd.path": "clangd",
+  // "clangd.arguments": ["--background-index"],
 
   "editor.tokenColorCustomizations": {
     "[One Dark*]": {
