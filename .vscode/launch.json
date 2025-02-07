@@ -2,6 +2,16 @@
   "version": "0.2.0",
   "configurations": [
     {
+      // need to install the Nsight extension
+      // https://marketplace.visualstudio.com/items?itemName=NVIDIA.nsight-vscode-edition
+      "name": "CUDA C++: Launch",
+      "type": "cuda-gdb",
+      "request": "launch",
+      "program": "${command:cmake.launchTargetPath}"
+    },
+    {
+      // need to install the lldb-dap extension
+      // https://marketplace.visualstudio.com/items?itemName=llvm-vs-code-extensions.lldb-dap
       "type": "lldb-dap",
       "request": "launch",
       "name": "lldb dap Launch",
