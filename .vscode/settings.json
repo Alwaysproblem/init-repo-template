@@ -33,7 +33,11 @@
   "C_Cpp.codeAnalysis.clangTidy.codeAction.formatFixes": true,
   "C_Cpp.codeAnalysis.clangTidy.useBuildPath": true,
   // "clangd.path": "clangd",
-  // "clangd.arguments": ["--background-index"],
+  // "clangd.arguments": [
+  //    "--background-index",
+  //    "--compile-commands-dir=${workspaceFolder}/",
+  //    "--path-mappings=/from=${workspaceFolder}/to", // when you add softlink to the workspace root and want clangd to resolve it
+  // ],
   // "lldb-dap.executable-path": "/usr/bin/lldb-dap-19",
 
   "editor.tokenColorCustomizations": {
